@@ -18,6 +18,7 @@ public class Main {
         
         createQuizDAO cqDAO=context.getBean(createQuizDAO.class);
         
+        
         createQuiz cq =new createQuiz();
         cq.setTitle("Quiz 1");
         cq.setDescription("Math & physcis ");
@@ -46,15 +47,37 @@ public class Main {
         cqDAO.save(cq);
         cqDAO.save(mc);
         cqDAO.save(trf);
+        cqDAO.save(num);
         
         System.out.println("Quiz::"+cq);
+        System.out.println("MCQS::"+mc);
+        System.out.println("True False::"+trf);
+        System.out.println("Numerical::"+num);
+        
+        
         
         List< createQuiz> list = cqDAO.list();
+         List<MCQS> list1 = cqDAO.list1();
+          List< trueFalse> list2 = cqDAO.list2();
+           List< numerical> list3 = cqDAO.list3();
+           
+           
         
         for( createQuiz cq2 : list){
-            
             System.out.println("Quiz List :: "+cq2);
-           
+        }
+        
+         for( MCQS mc2 : list1){
+            System.out.println("MCQS List :: "+mc2);
+        }
+         
+          for( trueFalse tf2 : list2){
+            System.out.println("True False List :: "+tf2);
+        }
+          
+          
+           for( numerical num2 : list3){
+            System.out.println("Numerical List :: "+num2);
         }
  context.close();
     }
