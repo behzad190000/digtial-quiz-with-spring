@@ -62,7 +62,7 @@ public class createQuizDAOImpl implements createQuizDAO {
 
     public List<trueFalse> list2() {
      Session session = this.sessionFactory.openSession();
-		List<trueFalse> tfList = session.createQuery("fromtrueFalse").list();
+		List<trueFalse> tfList = session.createQuery("from truefalse").list();
 		session.close();
 		return tfList;   
     }
